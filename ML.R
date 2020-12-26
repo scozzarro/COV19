@@ -19,3 +19,9 @@ validation<- Ita_gov_health[val_index,-c(3, 4)] #remove deaths and recovered dat
 train<- Ita_gov_health[-val_index,-c(3,4)] #remove deaths and recovered data
 train<- train[,-c(1,2)]
 
+nzv <- nearZeroVar(train, saveMetrics= TRUE)
+nzv
+
+train<- train[,-which(colnames(train) == "Amendments to funeral and burial regulations")]
+
+
